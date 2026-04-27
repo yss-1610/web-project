@@ -1,0 +1,26 @@
+main{
+    background-color: #f3f6f5;
+    color: #367d58;
+}
+
+header{
+    background-color:  #367d58;
+    color: #ffffff;
+    width: auto;
+}
+h1{
+    font-size: medium;
+}
+.header-nav{
+    background-color: #33cc49;
+    color:  #000000;;
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem;
+    flex-direction: row-reverse;
+    border-radius: 25rem;
+}
+
+.footer{
+    background-color: #367d58;
+}
