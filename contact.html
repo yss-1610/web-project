@@ -20,9 +20,37 @@
         </nav>
 
     <main>
-        <article>
 
-        </article>
+    <h2>Bize Ulaşın</h2>
+    
+    <form id="contactForm">
+        
+        <label for="fullName">Ad Soyad</label>
+        <input type="text" id="fullName" placeholder="Adınızı ve soyadınızı giriniz">
+        <div class="error-message" id="err-fullName">Lütfen adınızı ve soyadınızı giriniz.</div>
+
+        <label for="email">E-posta Adresi</label>
+        <input type="email" id="email" placeholder="ornek@mail.com">
+        <div class="error-message" id="err-email">Geçerli bir e-posta formatı giriniz (örn: a@b.com).</div>
+
+        <label for="phone">Telefon Numarası</label>
+        <input type="tel" id="phone" placeholder="05XXXXXXXXX">
+        <div class="error-message" id="err-phone">Telefon boş olamaz ve SADECE rakamlardan oluşmalıdır.</div>
+        
+        
+        <label>Geri Dönüş Tercihi</label>
+        <input type="radio" id="prefEmail" name="contactPref" value="E-posta">
+        <label for="prefEmail">E-posta</label>
+        <input type="radio" id="prefPhone" name="contactPref" value="Telefon">
+        <label for="prefPhone">Telefon</label>
+        <div class="error-message" id="err-pref">Lütfen bir geri dönüş yöntemi seçiniz.</div>
+
+        <label for="message">Mesajınız</label>
+        <textarea id="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
+        <div class="error-message" id="err-message">Mesaj alanı boş bırakılamaz.</div>
+        <button type="submit">Gönder</button>
+    </form>
+</div>
     </main>
 
     <div class="footer">

@@ -12,14 +12,16 @@ header{
     width: 100%;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-h1,h2,h3{
-    font-size: larger;
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
     margin: 1%;
 }
 .main-post{
-    background-color: #f6f3ee91;
+    background-color: #ffffff;
     color: rgb(21 132 21 / 0.7);
     margin: 5% 10% 5% 10%;
+    padding: 1rem 5rem;
     border-radius: 10px;
 }
 a{
