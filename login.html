@@ -20,15 +20,18 @@
         </nav>
 
     <main>
-        <article>
-            <form action="" method="post">
-                <label for="name">E-posta :</label><b></b>
-                <input type="email" name="e-posta" id="_e-posta"><br>
-                <label for="surname">Şifre :</label><b></b>
-                <input type="password" name="password" id="_pass2word"><br>
-                <button type="submit">Giriş</button>
-            </form>
-        </article>
+    <h2>Öğrenci Giriş Paneli</h2>
+
+    <form id="loginForm" action="login.php" method="POST">
+        <label for="username">E-posta (Öğrenci No):</label><br>
+        <input type="text" id="username" name="username" placeholder="b2412100001@sakarya.edu.tr"><br><br>
+
+        <label for="password">Şifre (Öğrenci No):</label><br>
+        <input type="password" id="password" name="password" placeholder="b2412100001"><br><br>
+
+        <button type="submit">Giriş Yap</button>
+    </form>
+
     </main>
 
     <div class="footer">
@@ -36,5 +39,27 @@
             <p>   Web Projesi   </p>
         </footer>
     </div>
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            const email = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            
+            // Boş alan kontrolü
+            if (email === "" || pass === "") {
+                alert("Lütfen tüm alanları doldurunuz.");
+                e.preventDefault();
+                return false;
+            }
+
+            // Mail formatı kontrolü (Regex)
+            // Format: b harfi + 10 rakam + @sakarya.edu.tr
+            const emailRegex = /^[bB]\d{10}@sakarya\.edu\.tr$/;
+            if (!emailRegex.test(email)) {
+                alert("Lütfen geçerli bir öğrenci maili giriniz (Örn: b2412100001@sakarya.edu.tr)");
+                e.preventDefault();
+                return false;
+            }
+        };
+    </script>
  </body>
 </html>
