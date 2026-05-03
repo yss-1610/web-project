@@ -44,15 +44,13 @@
             const email = document.getElementById('username').value.trim();
             const pass = document.getElementById('password').value.trim();
             
-            // Boş alan kontrolü
+            
             if (email === "" || pass === "") {
                 alert("Lütfen tüm alanları doldurunuz.");
                 e.preventDefault();
                 return false;
             }
 
-            // Mail formatı kontrolü (Regex)
-            // Format: b harfi + 10 rakam + @sakarya.edu.tr
             const emailRegex = /^[bB]\d{10}@sakarya\.edu\.tr$/;
             if (!emailRegex.test(email)) {
                 alert("Lütfen geçerli bir öğrenci maili giriniz (Örn: b2412100001@sakarya.edu.tr)");
