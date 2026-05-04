@@ -12,7 +12,7 @@ header{
     width: 100%;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-h1{
+h1,h2{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
     margin: 1%;
@@ -49,7 +49,26 @@ a:hover{
     color: rgba(255, 255, 255, 0.8);
     padding: 5px;
 }
-
+.cont_box{
+    display: flex;
+    padding: 10px;
+}
+.pref_cont{
+    display: none;
+}
+.pref_button{
+    flex-direction: row;
+    display: flex;
+}
+button{
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #33cc49;
+    color: #000000;
+}
+button:hover{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
 .nav-act{
     display: flex;
     background-color: #8b228b;

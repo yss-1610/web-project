@@ -25,26 +25,36 @@
         <form id="contactForm" method="post">
             <fieldset>
                 <legend>Kişisel Bilgiler</legend>
-                <label for="name">Ad :</label><b>
+                <div class="cont_box">
+                <label for="name">Ad Soyad</label><b>
                 <input type="text" id="Name" placeholder="Adınızı ve Soyadınızı giriniz..."><br><br>
                     <div id="n_error"></div>
+                </div>
             </fieldset>
         
             <fieldset>
                 <legend>İletişim Tercihi</legend>
-                <button type="button" onclick="emailshow()">E-posta</button>
-                <button type="button" onclick="phoneshow()">Telefon</button>
+                <div class="pref_button">
+                    <button  type="button" onclick="emailshow()">E-posta</button>
+                    <button type="button" onclick="phoneshow()">Telefon</button>
+                </div>
                     <div id="c_error" ></div>
-                <label for="email">E-posta Adresi</label>
-                <input type="email" id="email" placeholder="ornek@mail.com"><br>
-                    <div id="e_error"></div>
-                <label for="phone">Telefon Numarası</label>
-                <input type="tel" id="phone" placeholder="05XXXXXXXXX">
-                    <div id="p_error"></div>
+                <div class="pref_cont" id="e-mail_box">
+                    <label for="email">E-posta Adresi</label>
+                    <input type="email" id="email" placeholder="ornek@mail.com"><br>
+                        <div id="e_error"></div>
+                </div>
+                <div class="pref_cont" id="phone_box">
+                    <label for="phone">Telefon Numarası</label>
+                    <input type="tel" id="phone" placeholder="5XXXXXXXXX">
+                        <div id="p_error"></div>
+                </div>
             </fieldset>
             <fieldset>
-                <label for="message">Mesajınız</label>
-                <textarea id="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
+                <div class="cont_box">
+                    <label for="message">Mesajınız</label><br>
+                    <textarea id="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
+                </div>
             </fieldset>
 
             <button type="submit">Gönder</button>
@@ -62,11 +72,15 @@
         const emailRegex = /^[bBgGcCAa]\d{10}@sakarya\.edu\.tr$/;
         const phoneRegex = /^\d[5[0-9]{9}$/;
         
+        const email_box=document.getElementById('e-mail_box');
+        const phone_box=document.getElementById('phone_box');
         function emailshow(){
             e_show=true;
+            email_box.style.display='flex';
         };
         function phoneshow(params) {
             p_show=true;
+            phone_box.style.display='flex';
         };
 
         form.addEventListener('submit',function(e) {
@@ -85,7 +99,7 @@
                 email_error="Lütfen Geçerli E-posta Girin";               
             }if (p_show==true&&!phoneRegex.test(phone_)) {
                 phone_error="Lütfen Geçerli Bir Telefon Numarası Girin";               
-            }
+            }else{form.submit()}
         })
     </script>
     <div class="footer">
