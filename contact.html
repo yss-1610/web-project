@@ -8,7 +8,7 @@
 
  <body>
     <!-- <form action="contact.js" method="post" onsubmit=" JS isFormValid "></form> -->
-      <header>
+    <header>
         <nav class="main-nav">
             <a style="font-weight: bold; font-size: x-large;" href="index.html">Main Page</a>
             <div class="header-nav">
@@ -18,41 +18,76 @@
             </div>
             <a class="nav-act" href="login.html">Login</a>
         </nav>
-
+    </header>
     <main>
-
-    <h2>Bize Ulaşın</h2>
-    
-    <form id="contactForm" >
+        <h2>Bize Ulaşın</h2>
         
-        <label for="fullName">Ad Soyad</label>
-        <input type="text" id="fullName" placeholder="Adınızı ve soyadınızı giriniz">
-    
-
-        <label for="email">E-posta Adresi</label>
-        <input type="email" id="email" placeholder="ornek@mail.com">
-   
-
-        <label for="phone">Telefon Numarası</label>
-        <input type="tel" id="phone" placeholder="05XXXXXXXXX">
- 
+        <form id="contactForm" method="post">
+            <fieldset>
+                <legend>Kişisel Bilgiler</legend>
+                <label for="name">Ad :</label><b>
+                <input type="text" id="Name" placeholder="Adınızı ve Soyadınızı giriniz..."><br><br>
+                    <div id="n_error"></div>
+            </fieldset>
         
-        
-        <label>Geri Dönüş Tercihi</label>
-        <input type="radio" id="email" name="contact" value="E-posta">
-        <label for="prefEmail">E-posta</label>
-        <input type="radio" id="prefPhone" name="contact" value="Telefon">
-        <label for="prefPhone">Telefon</label>
- 
+            <fieldset>
+                <legend>İletişim Tercihi</legend>
+                <button type="button" onclick="emailshow()">E-posta</button>
+                <button type="button" onclick="phoneshow()">Telefon</button>
+                    <div id="c_error" ></div>
+                <label for="email">E-posta Adresi</label>
+                <input type="email" id="email" placeholder="ornek@mail.com"><br>
+                    <div id="e_error"></div>
+                <label for="phone">Telefon Numarası</label>
+                <input type="tel" id="phone" placeholder="05XXXXXXXXX">
+                    <div id="p_error"></div>
+            </fieldset>
+            <fieldset>
+                <label for="message">Mesajınız</label>
+                <textarea id="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
+            </fieldset>
 
-        <label for="message">Mesajınız</label>
-        <textarea id="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
-
-        <button type="submit">Gönder</button>
-    </form>
-</div>
+            <button type="submit">Gönder</button>
+        </form>
     </main>
+    <script>
+        let e_show,p_show = false;
+        let name_error=document.getElementById('n_error').textContent;
+        let pref_error=document.getElementById('c_error').textContent;
+        let email_error=document.getElementById('e_error').textContent;
+        let phone_error=document.getElementById('p_error').textContent;
+        
+        const form = document.getElementById('contactForm');
+        const nameRegex = /^[a-zA-Z]{1,30}$/;
+        const emailRegex = /^[bBgGcCAa]\d{10}@sakarya\.edu\.tr$/;
+        const phoneRegex = /^\d[5[0-9]{9}$/;
+        
+        function emailshow(){
+            e_show=true;
+        };
+        function phoneshow(params) {
+            p_show=true;
+        };
 
+        form.addEventListener('submit',function(e) {
+            e.preventDefault();
+            const name_ = document.getElementById('name').value.trim();
+            const email_ = document.getElementById('email').value.trim();
+            const phone_ = document.getElementById('phone').value.trim();
+            const message_= document.getElementById('message').value.trim();
+
+
+            if (name_!==""||!nameRegex.test(name_)) {
+                name_error="Lütfen Geçerli Bir Değer Girin.";
+            }if(e_show==false&&p_show==false){
+                pref_error="Lütfen En Az Bir Yöntemi Seçiniz";
+            }if (e_show==true&&!emailRegex.test(email_)) {
+                email_error="Lütfen Geçerli E-posta Girin";               
+            }if (p_show==true&&!phoneRegex.test(phone_)) {
+                phone_error="Lütfen Geçerli Bir Telefon Numarası Girin";               
+            }
+        })
+    </script>
     <div class="footer">
         <footer>
             <p>   Web Projesi   </p>
