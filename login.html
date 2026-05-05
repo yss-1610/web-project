@@ -29,7 +29,7 @@
         <label for="password">Şifre (Öğrenci No):</label><br>
         <input type="password" id="password" name="password" placeholder="b2412100001"><br><br>
 
-        <button type="submit">Giriş Yap</button>
+        <button type="submit" name="login" value="login_form">Giriş Yap</button>
     </form>
 
     </main>
@@ -40,24 +40,21 @@
         </footer>
     </div>
     <script>
-        document.getElementById('loginForm').onsubmit = function(e) {
+        const login =document.getElementById('loginForm');
+        login.addEventListener('submit',function(e){
+            e.preventDefault();
             const email = document.getElementById('username').value.trim();
             const pass = document.getElementById('password').value.trim();
             
-            
             if (email === "" || pass === "") {
                 alert("Lütfen tüm alanları doldurunuz.");
-                e.preventDefault();
-                return false;
             }
-
             const emailRegex = /^[bBgGcCAa]\d{10}@sakarya\.edu\.tr$/;
             if (!emailRegex.test(email)) {
                 alert("Lütfen geçerli bir öğrenci maili giriniz (Örn: b2412100001@sakarya.edu.tr)");
-                e.preventDefault();
-                return false;
             }
-        };
+            else{login.submit()}
+        });
     </script>
  </body>
 </html>

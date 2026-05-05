@@ -22,32 +22,32 @@
     <main>
         <h2>Bize Ulaşın</h2>
         
-        <form id="contactForm" method="post">
+        <form id="contactForm" method="post" action="server.php">
             <fieldset>
                 <legend>Kişisel Bilgiler</legend>
                 <div class="cont_box">
-                <label for="name">Ad Soyad</label><b>
+                <label for="Name">Ad Soyad</label><b>
                 <input type="text" id="Name" placeholder="Adınızı ve Soyadınızı giriniz..."><br><br>
-                    <div id="n_error"></div>
+                    <div class="error" id="n_error"></div>
                 </div>
             </fieldset>
         
             <fieldset>
                 <legend>İletişim Tercihi</legend>
                 <div class="pref_button">
-                    <button  type="button" onclick="emailshow()">E-posta</button>
-                    <button type="button" onclick="phoneshow()">Telefon</button>
+                    <button type="button" name="prefCont" value="e-mail" onclick="emailshow()">E-posta</button>
+                    <button type="button" name="prefCont" value="phone" onclick="phoneshow()">Telefon</button>
                 </div>
-                    <div id="c_error" ></div>
+                    <div class="error" id="c_error" ></div>
                 <div class="pref_cont" id="e-mail_box">
                     <label for="email">E-posta Adresi</label>
                     <input type="email" id="email" placeholder="ornek@mail.com"><br>
-                        <div id="e_error"></div>
+                        <div class="error" id="e_error"></div>
                 </div>
                 <div class="pref_cont" id="phone_box">
                     <label for="phone">Telefon Numarası</label>
                     <input type="tel" id="phone" placeholder="5XXXXXXXXX">
-                        <div id="p_error"></div>
+                        <div class="error" id="p_error"></div>
                 </div>
             </fieldset>
             <fieldset>
@@ -57,7 +57,7 @@
                 </div>
             </fieldset>
 
-            <button type="submit">Gönder</button>
+            <button type="submit" name="contact" value="contact_form">Gönder</button>
         </form>
     </main>
     <script>

@@ -17,19 +17,28 @@ h1,h2{
     font-size: x-large;
     margin: 1%;
 }
-.main-post{
-    background-color: #ffffff;
-    color: rgb(21 132 21 / 0.7);
-    margin: 5% 10% 5% 10%;
-    padding: 1rem 5rem;
-    border-radius: 10px;
-}
 a{
     text-decoration: none;
 }
 a:hover{
     opacity: 0.8;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+button{
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #33cc49;
+    color: #000000;
+}
+button:hover{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.main-post{
+    background-color: #ffffff;
+    color: rgb(21 132 21 / 0.7);
+    margin: 5% 10% 5% 10%;
+    padding: 1rem 5rem;
+    border-radius: 10px;
 }
 .main-nav{
     color: #ffffff;
@@ -60,14 +69,11 @@ a:hover{
     flex-direction: row;
     display: flex;
 }
-button{
-    border-radius: 0.5rem;
+.error{
+    color:rgba(204, 4, 4, 0.815);
     border: none;
-    background-color: #33cc49;
-    color: #000000;
-}
-button:hover{
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: -5px;
+    font-size: 12px;
 }
 .nav-act{
     display: flex;
