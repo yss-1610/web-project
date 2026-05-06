@@ -90,3 +90,15 @@ button:hover{
     margin-top : 2re;
     padding: 2rem;
 }
+.city-section img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+@media (min-width: 768px) {
+        .reverse-layout {
+        flex-direction: row-reverse;
+    }
+}
