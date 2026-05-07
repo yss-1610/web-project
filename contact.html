@@ -26,7 +26,7 @@
             <fieldset>
                 <legend>Kişisel Bilgiler</legend>
                 <div class="cont_box">
-                <label for="Name">Ad Soyad</label><b>
+                <label for="name">Ad Soyad</label><b></b>
                 <input type="text" id="Name" placeholder="Adınızı ve Soyadınızı giriniz..."><br><br>
                     <div class="error" id="n_error"></div>
                 </div>
@@ -61,45 +61,62 @@
         </form>
     </main>
     <script>
-        let e_show,p_show = false;
-        let name_error=document.getElementById('n_error').textContent;
-        let pref_error=document.getElementById('c_error').textContent;
-        let email_error=document.getElementById('e_error').textContent;
-        let phone_error=document.getElementById('p_error').textContent;
+        let e_show=false;
+        let p_show = false;
+        let name_error=document.getElementById('n_error');
+        let pref_error=document.getElementById('c_error');
+        let email_error=document.getElementById('e_error');
+        let phone_error=document.getElementById('p_error');
         
         const form = document.getElementById('contactForm');
-        const nameRegex = /^[a-zA-Z]{1,30}$/;
+        const nameRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ ]{2,30}$/;
         const emailRegex = /^[bBgGcCAa]\d{10}@sakarya\.edu\.tr$/;
-        const phoneRegex = /^\d[5[0-9]{9}$/;
+        const phoneRegex = /^5[0-9]{9}$/;
         
         const email_box=document.getElementById('e-mail_box');
         const phone_box=document.getElementById('phone_box');
         function emailshow(){
-            e_show=true;
-            email_box.style.display='flex';
+            if (e_show==false) {
+                e_show=true;
+                email_box.style.display='flex';
+            }else{e_show=false;email_box.style.display='none';}
         };
-        function phoneshow(params) {
-            p_show=true;
-            phone_box.style.display='flex';
+        function phoneshow() {
+            if (p_show==false) {
+                p_show=true;
+                phone_box.style.display='flex';
+            }else{p_show=false;phone_box.style.display='none';}
         };
 
         form.addEventListener('submit',function(e) {
             e.preventDefault();
+
+            n_error.textContent = '';
+            c_error.textContent = '';
+            e_error.textContent = '';
+            p_error.textContent = '';
+
             const name_ = document.getElementById('name').value.trim();
             const email_ = document.getElementById('email').value.trim();
             const phone_ = document.getElementById('phone').value.trim();
             const message_= document.getElementById('message').value.trim();
+            let isValid = true;
 
 
-            if (name_!==""||!nameRegex.test(name_)) {
-                name_error="Lütfen Geçerli Bir Değer Girin.";
-            }if(e_show==false&&p_show==false){
-                pref_error="Lütfen En Az Bir Yöntemi Seçiniz";
-            }if (e_show==true&&!emailRegex.test(email_)) {
-                email_error="Lütfen Geçerli E-posta Girin";               
-            }if (p_show==true&&!phoneRegex.test(phone_)) {
-                phone_error="Lütfen Geçerli Bir Telefon Numarası Girin";               
-            }else{form.submit()}
+            if (name_===""||!nameRegex.test(name_)) {
+                name_error.textContent="Lütfen Geçerli Bir Değer Girin.";
+                isValid = false;
+            }if(!e_show && !p_show){
+                isValid = false;
+                pref_error.textContent="Lütfen En Az Bir Yöntemi Seçiniz";
+            }if (e_show &&!emailRegex.test(email_)) {
+                isValid = false; 
+                email_error.textContent="Lütfen Geçerli E-posta Girin";               
+            }if (p_show && !phoneRegex.test(phone_)) {
+                isValid = false; 
+                phone_error.textContent="Lütfen Geçerli Bir Telefon Numarası Girin";               
+            }
+            if (isValid) form.submit();
         })
     </script>
     <div class="footer">

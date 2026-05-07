@@ -87,7 +87,7 @@ button:hover{
     background-color: #158415;
     color: rgba(255, 255, 255, 0.8);
     justify-items: center;
-    margin-top : 2re;
+    margin-top : 2rem;
     padding: 2rem;
 }
 .city-section img {
@@ -96,6 +96,7 @@ button:hover{
     height: auto;
     border-radius: 8px;
     object-fit: cover;
+    flex-direction: row;
 }
 @media (min-width: 768px) {
         .reverse-layout {
