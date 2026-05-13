@@ -46,7 +46,7 @@ async function NTSubmit() {
         formData.append('suggestions',selectedSuggestions);
         formData.append('message',message);
         try {
-            const response = await fetch('/login.php', {
+            const response = await fetch('../../server/server.php', {
                 method: 'POST',
                 body: formData
             });
@@ -83,7 +83,7 @@ async function ZodSubmit(params) {
     try {
         formSchema.parse(formData);
         alert('Zod Kütüphanesi Doğrulaması Başarılı! Veriler sunucuya gönderiliyor...');
-        const response = await fetch('/login.php', {
+        const response = await fetch('../../server/server.php', {
                 method: 'POST',
                 body: formData
             });

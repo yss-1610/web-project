@@ -25,7 +25,7 @@
         formData.append('password', password);
 
         try {
-            const response = await fetch('/login.php', {
+            const response = await fetch('../../server/server.php', {
                 method: 'POST',
                 body: formData
             });
@@ -35,7 +35,7 @@
                 throw new Error('HTTP error! '+result.status);
                 
             }
-            if (result==="true") {
+            if (result.succed==="true") {
                 goto(`/login/basari?ogrNo=${password.trim()}`);
             } else {
                 goto("/login");
