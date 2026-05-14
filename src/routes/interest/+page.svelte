@@ -1,4 +1,3 @@
-<h1>Ana ayfa</h1>
 <section>
 <div>
     <div><img src="" alt="profile"></div>
@@ -21,5 +20,6 @@
     </div>
 </div>
 <div>
+    <iframe src="" frameborder="0"> trabzon video</iframe>
 </div>
 </section>

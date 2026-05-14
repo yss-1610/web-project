@@ -1,10 +1,11 @@
 <script>
-	import '../index.css';
+	// import '../index.css';
 	let { children } = $props();
 </script>
 
 <nav>
-	<a href="/main">Ana Sayfa</a>
+	<a href="/">Ana Sayfa</a>
+	<a href="/interest">API</a>
 	<a href="/cv">CV</a>
 	<a href="/contact">İletişim</a>
 	<a href="/mycity">Şehrim</a>

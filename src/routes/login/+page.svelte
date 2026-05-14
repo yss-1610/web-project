@@ -25,24 +25,22 @@
         formData.append('password', password);
 
         try {
-            const response = await fetch('../../server/server.php', {
+            const response = await fetch('http://localhost/api/server.php', {
                 method: 'POST',
                 body: formData
             });
 
-            const result = await response;
-            if (!result.ok) {
+            const result = await response.json();
+            if (!response.ok) {
                 throw new Error('HTTP error! '+result.status);
-                
             }
-            if (result.succed==="true") {
+            if (result.success==="true") {
                 goto(`/login/basari?ogrNo=${password.trim()}`);
             } else {
-                goto("/login");
-                throw new Error("Hatalı giriş");
+                errorMessage ="Şifre veya Kullanıcı Adı Hatalı";
             }
         } catch (error) {
-            errorMessage = {error};
+            errorMessage = error.message;
         }
     }
 </script>
